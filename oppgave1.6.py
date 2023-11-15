@@ -23,18 +23,13 @@ all_wares = {
 }
 }
 
-# Selve funksjonen
-def add_number_of_ware_to_shopping_cart(ware, amount):
-    cart = {}
-    cart['{ware}'] = amount
-    in_stock = ware['number_in_stock']
-    if in_stock < amount:
-        print(f"Sorry! Not enough {ware['name']} in stock.")
-    else:
-        print(f"Your shopping cart contains {amount} {ware['name']}s.")
+shopping_cart = {}
 
-# Funksjonen in action
-add_number_of_ware_to_shopping_cart(all_wares['hdmi_cable'], 3)
+def calculate_shopping_cart_price(shopping_cart, all_wares, tax = 0.25):
+    calculate_tax = all_wares['price'] * tax
+    total_price = all_wares['price'] + calculate_tax
+    shopping_cart['{ware}'] = all_wares['name']
+    shopping_cart['{price}'] = total_price
+    print(f"{shopping_cart}")
 
-# Funksjon som legger til mer enn tilgjengelig mengde
-add_number_of_ware_to_shopping_cart(all_wares['hdmi_cable'], 10)
+calculate_shopping_cart_price(shopping_cart, all_wares['amd_processor'])

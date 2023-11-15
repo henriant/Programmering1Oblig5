@@ -22,19 +22,3 @@ all_wares = {
 "description": "A high speed overprices HDMI cable!",
 }
 }
-
-# Selve funksjonen
-def add_number_of_ware_to_shopping_cart(ware, amount):
-    cart = {}
-    cart['{ware}'] = amount
-    in_stock = ware['number_in_stock']
-    if in_stock < amount:
-        print(f"Sorry! Not enough {ware['name']} in stock.")
-    else:
-        print(f"Your shopping cart contains {amount} {ware['name']}s.")
-
-# Funksjonen in action
-add_number_of_ware_to_shopping_cart(all_wares['hdmi_cable'], 3)
-
-# Funksjon som legger til mer enn tilgjengelig mengde
-add_number_of_ware_to_shopping_cart(all_wares['hdmi_cable'], 10)
